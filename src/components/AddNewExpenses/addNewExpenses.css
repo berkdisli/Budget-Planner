@@ -1,0 +1,23 @@
+.btn {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.842);
+  border: none;
+  color: #252323;
+  text-decoration: none;
+  border: 1px solid rgb(80, 78, 78);
+  border-radius: 20px;
+  font-size: 20px;
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 2px;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.5s opacity;
+  transition-duration: 0.2s;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 50px;
+}

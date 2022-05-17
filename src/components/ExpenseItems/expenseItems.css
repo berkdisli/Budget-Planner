@@ -1,0 +1,29 @@
+.amount {
+  color: rgb(226, 25, 10);
+}
+
+.delete {
+  border: #c25757 solid;
+  width: 116px;
+  height: 24px;
+  border: none;
+  /* Body/Medium 16 - Bold */
+  background-color: white;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+  letter-spacing: -0.25px;
+
+  color: #c25757;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
