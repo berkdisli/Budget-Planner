@@ -4,8 +4,8 @@ import './viewExpenseItem.css'
 const ViewExpense = (props) => {
     return (
         <>
-            <span>{props.budget}</span>
-            <button class='edit-item' onClick={props.handleEditClick}>
+            <span>{props.edit}</span>
+            <button class='edit-item' onClick={props.handleEditItem}>
                 Edit
             </button>
         </>

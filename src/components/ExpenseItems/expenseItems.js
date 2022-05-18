@@ -8,16 +8,18 @@ const ExpenseItems = (props) => {
     const { edit, dispatch } = useContext(AppContext);
     const [isEditing, setIsEditing] = useState(false);
 
-    const handleEditClick = () => {
+    const handleEditItem = () => {
         setIsEditing(true);
     };
-    const handleSaveClick = (value) => {
+
+    const handleSaveItem = (value) => {
         dispatch({
             type: 'SET_EXPENSE',
             payload: value,
         });
         setIsEditing(false);
     };
+
     const handleDeleteExpense = () => {
         dispatch({
             type: 'DELETE_EXPENSE',
@@ -34,11 +36,11 @@ const ExpenseItems = (props) => {
                     -€{props.cost}
                 </span>
                 {isEditing ? (
-                    <EditExpense handleSaveClick={handleSaveClick} edit={edit} />
+                    <EditExpense handleSaveItem={handleSaveItem} edit={edit} />
                 ) : (
-                    // For part 1 render component inline rather than create a seperate one
-                    <ViewExpense handleEditClick={handleEditClick} edit={edit} />
+                    <ViewExpense handleEditItem={handleEditItem} edit={edit} />
                 )}
+
                 <button className='delete' onClick={handleDeleteExpense}> Delete</button>
             </div>
         </li>

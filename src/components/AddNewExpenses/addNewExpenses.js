@@ -3,7 +3,7 @@ import { AppContext } from '../../AppContext/appContext';
 import { v4 as uuidv4 } from 'uuid';
 import './addNewExpenses.css';
 
-const AddNewExpenses = (props) => {
+const AddNewExpenses = () => {
     const { dispatch } = useContext(AppContext);
 
     const [name, setName] = useState('');

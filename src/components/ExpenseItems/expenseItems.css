@@ -1,19 +1,19 @@
 .amount {
-  color: rgb(226, 25, 10);
+  color: rgb(122, 51, 46);
 }
 
 .delete {
-  border: #c25757 solid;
-  width: 116px;
+  width: 50px;
   height: 24px;
   border: none;
   /* Body/Medium 16 - Bold */
   background-color: white;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  text-decoration-line: underline;
+
   /* identical to box height, or 150% */
 
   text-align: center;
@@ -26,4 +26,9 @@
   flex: none;
   order: 0;
   flex-grow: 0;
+}
+
+.delete:hover {
+  background-color: rgb(192, 49, 49);
+  color: rgb(248, 246, 246);
 }

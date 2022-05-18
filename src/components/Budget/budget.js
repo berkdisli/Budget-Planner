@@ -4,7 +4,6 @@ import { AppContext } from '../../AppContext/appContext';
 import EditBudget from '../Edit Budget/editBudget';
 import ViewBudget from '../ViewBudget/viewBudget';
 
-
 const Budget = () => {
     const { budget, dispatch } = useContext(AppContext);
     const [isEditing, setIsEditing] = useState(false);

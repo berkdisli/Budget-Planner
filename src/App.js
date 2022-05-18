@@ -12,7 +12,9 @@ import ApexChart from './components/ApexChart/apexChart';
 import { AppProvider } from './AppContext/appContext';
 import { AppContext } from './AppContext/appContext';
 import { PieChart } from 'react-minimal-pie-chart';
-import { Card, Container } from 'react-bootstrap';
+import { Doughnut } from 'react-chartjs-2';
+import { Card } from 'react-bootstrap';
+import Expensesss from './components/PieChart/pieChart';
 
 export function CDate() {
   const cmonth = new Date().toLocaleString("en-US", { month: "long" })
@@ -36,61 +38,60 @@ const App = () => {
   return (
     <AppProvider>
       <div className='container'>
-        <h1 className='mt-3 planner'>Budget Planner</h1>
+        <h2 className='mt-3 planner'>Budget Planner</h2>
         <div className='row mt-3'>
           <div className='col-sm'>
-            <Container>
-              <Card>
-                <Budget />
-                <Remaining />
-                <Expenses />
-              </Card>
-            </Container>
+            <Card className='card'>
+              <Budget />
+              <Remaining />
+              <Expenses />
+            </Card>
           </div>
         </div>
-        <Container>
-          <Card>
-            <div className='row mt-3'>
-              <div className='col-sm'>
-                <ApexChart />
-              </div>
-              <div className='col-sm'>
-                <PieChart
-                  width='50%'
-                  animation
-                  animationDuration={500}
-                  animationEasing="ease-out"
-                  center={[50, 50]}
-                  data={[
-                    {
-                      color: "#007FFF",
-                      title: "Expenses",
-                      value: 10,
-                    },
-                    {
-                      color: "#E7ECF3",
-                      title: "Remaining",
-                      value: 15,
-                    },
-                  ]}
-                  labelPosition={50}
-                  lengthAngle={360}
-                  lineWidth={15}
-                  paddingAngle={0}
-                  radius={50}
-                  startAngle={0}
-                  viewBoxSize={[100, 100]}
-                  segmentsStyle={{ width: '10px' }}
-                  labelStyle={{
-                    fontSize: "10px",
-                    fontColor: "FFFFFA",
-                    fontWeight: "800",
-                  }}
-                />
-              </div>
+        <Card className='card'>
+          <div className='row mt-3'>
+            <div className='col-sm'>
+              <ApexChart />
             </div>
-          </Card>
-        </Container>
+            {/* <Expensesss></Expensesss> */}
+            <div className='col-sm'>
+            </div>
+            <div className='col-sm'>
+              <PieChart
+                width='100%'
+                animation
+                animationDuration={500}
+                animationEasing="ease-out"
+                center={[50, 50]}
+                data={[
+                  {
+                    color: "#007FFF",
+                    title: "Expenses",
+                    value: 10,
+                  },
+                  {
+                    color: "#E7ECF3",
+                    title: "Remaining",
+                    value: 15,
+                  },
+                ]}
+                labelPosition={50}
+                lengthAngle={360}
+                lineWidth={15}
+                paddingAngle={0}
+                radius={50}
+                startAngle={0}
+                viewBoxSize={[100, 100]}
+                segmentsStyle={{ width: '10px' }}
+                labelStyle={{
+                  fontSize: "10px",
+                  fontColor: "FFFFFA",
+                  fontWeight: "800",
+                }}
+              />
+            </div>
+          </div>
+        </Card>
         <h3 className='mt-3'>Expenses</h3>
         <h3 className="track">On track</h3>
         <Remain />
@@ -107,6 +108,7 @@ const App = () => {
           </div>
         </div>
       </div>
+
     </AppProvider >
   );
 };

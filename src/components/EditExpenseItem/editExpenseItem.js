@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import './../ViewExpenseItem/viewExpenseItem.css'
 
 const EditExpense = (props) => {
-    const [value, setValue] = useState(props.budget);
+    const [value, setValue] = useState(props.edit);
     return (
         <>
             <input
@@ -12,8 +13,8 @@ const EditExpense = (props) => {
                 value={value}
                 onChange={(event) => setValue(event.target.value)}
             />
-            <button
-                onClick={() => props.handleSaveClick(value)}
+            <button className='save-item'
+                onClick={() => props.handleSaveItem(value)}
             >
                 Save
             </button>
