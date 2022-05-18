@@ -8,13 +8,12 @@ import Expenses from './components/Expenses/expenses';
 import ExpenseList from './components/ExpenseList/expenseList';
 import AddNewExpenses from './components/AddNewExpenses/addNewExpenses';
 import ApexChart from './components/ApexChart/apexChart';
+import PieCharts from './components/PieChart/pieChart';
 
 import { AppProvider } from './AppContext/appContext';
 import { AppContext } from './AppContext/appContext';
 import { PieChart } from 'react-minimal-pie-chart';
-import { Doughnut } from 'react-chartjs-2';
 import { Card } from 'react-bootstrap';
-import Expensesss from './components/PieChart/pieChart';
 
 export function CDate() {
   const cmonth = new Date().toLocaleString("en-US", { month: "long" })
@@ -53,11 +52,12 @@ const App = () => {
             <div className='col-sm'>
               <ApexChart />
             </div>
-            {/* <Expensesss></Expensesss> */}
             <div className='col-sm'>
             </div>
             <div className='col-sm'>
-              <PieChart
+              {/* < PieCharts /> */}
+
+              {/* <PieChart
                 width='100%'
                 animation
                 animationDuration={500}
@@ -88,7 +88,7 @@ const App = () => {
                   fontColor: "FFFFFA",
                   fontWeight: "800",
                 }}
-              />
+              /> */}
             </div>
           </div>
         </Card>
