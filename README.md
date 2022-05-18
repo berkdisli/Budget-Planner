@@ -1,6 +1,6 @@
 # Budget Planner
 
-Scenario: Working for a fintech firm that is about to release a new financial planning function in its web app. User research revealed that this is the most requested feature, providing valuable information about how the organization would like it to work. 
+Scenario: Working for a fintech firm that is about to release a new financial planning feature in its web app. User research revealed that this is the most requested feature, providing valuable information about how the organization would like it to work. 
 
 ## Project Objective
 
@@ -30,7 +30,7 @@ Design and build a financial planning feature that allows users to keep track of
 * As a user, I want to be able to see my total balance after expenses have been extracted from
 my budgeted amount.
 
-## Avaliable Scripts
+## Available Scripts
 
 #### `npm start`
 
