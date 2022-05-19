@@ -1,8 +1,9 @@
-#name {
+#search {
   box-shadow: 1px 1px 3px;
+  gap: 10px;
   transition: 0.5s;
 }
 
-#cost {
+#items {
   box-shadow: 1px 1px 3px;
 }

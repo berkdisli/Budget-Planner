@@ -8,12 +8,15 @@ import Expenses from './components/Expenses/expenses';
 import ExpenseList from './components/ExpenseList/expenseList';
 import AddNewExpenses from './components/AddNewExpenses/addNewExpenses';
 import ApexChart from './components/ApexChart/apexChart';
-import PieCharts from './components/PieChart/pieChart';
+import LogoImage from "./img/budget.png";
+
+// import PieCharts from './components/PieChart/pieChart';
 
 import { AppProvider } from './AppContext/appContext';
 import { AppContext } from './AppContext/appContext';
 import { PieChart } from 'react-minimal-pie-chart';
-import { Card } from 'react-bootstrap';
+import { Card, Navbar, Nav, Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 export function CDate() {
   const cmonth = new Date().toLocaleString("en-US", { month: "long" })
@@ -36,6 +39,31 @@ function Remain() {
 const App = () => {
   return (
     <AppProvider>
+      <Navbar className="navbar-header" expand="lg">
+        <Navbar.Brand className="navbar-logo" href="/">
+          <img
+            src={LogoImage}
+            className="navbar-logo d-inline-block align-top"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link>
+              <Button href="/">
+                Home
+              </Button>
+            </Nav.Link>
+            <Nav.Link href="#logout">
+              <Button
+                href='#expenses'
+              >
+                Expenses
+              </Button>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
       <div className='container'>
         <h2 className='mt-3 planner'>Budget Planner</h2>
         <div className='row mt-3'>
@@ -57,7 +85,7 @@ const App = () => {
             <div className='col-sm'>
               {/* < PieCharts /> */}
 
-              {/* <PieChart
+              <PieChart
                 width='100%'
                 animation
                 animationDuration={500}
@@ -88,11 +116,11 @@ const App = () => {
                   fontColor: "FFFFFA",
                   fontWeight: "800",
                 }}
-              /> */}
+              />
             </div>
           </div>
         </Card>
-        <h3 className='mt-3'>Expenses</h3>
+        <h3 id='expenses' className='mt-3'>Expenses</h3>
         <h3 className="track">On track</h3>
         <Remain />
         <div className='row mt-3'>

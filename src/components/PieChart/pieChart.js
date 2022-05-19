@@ -1,52 +1,113 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect } from "react";
+// import ReactDOM from "react-dom";
+// import { Doughnut, Pie } from "react-chartjs-2";
+// import { chartColors } from "./colors";
 
-const genres = ['Expenses', 'Remaining'];
-const colors = ['#d0427f', '#f8a01f'];
+// const options = {
+//     legend: {
+//         display: false,
+//         position: "right"
+//     },
+//     elements: {
+//         arc: {
+//             borderWidth: 0
+//         }
+//     }
+// };
 
-const PieCharts = ({ events }) => {
-    const [data, setData] = useState([]);
+// const pieOptions = {
+//     legend: {
+//         display: false,
+//         position: "right",
+//         legendCallback: function (chart) {
+//             // Return the HTML string here.
+//             console.log(chart);
+//             return [
+//                 <ul>
+//                     <li>z</li>
+//                     <li>zzzz</li>
+//                     <li>ppp</li>
+//                     <li>adasda</li>
+//                 </ul>
+//             ];
+//         }
+//     },
+//     elements: {
+//         arc: {
+//             borderWidth: 0
+//         }
+//     }
+// };
 
-    const getData = () => {
-        let data = genres.map((genre) => {
-            const value = events.filter((event) =>
-                event.summary.split(" ").includes(genre)
-            ).length;
+// const data = {
+//     maintainAspectRatio: false,
+//     responsive: false,
+//     labels: ["a", "b", "c", "d"],
+//     datasets: [
+//         {
+//             data: [300, 50, 100, 50],
+//             backgroundColor: chartColors,
+//             hoverBackgroundColor: chartColors
+//         }
+//     ]
+// };
 
-            return { name: genre, value };
-        });
-        data = data.filter((data) => data.value);
-        return data;
-    };
+// const pieData = {
+//     maintainAspectRatio: false,
+//     responsive: false,
+//     labels: ["usa", "europe", "africa"],
+//     datasets: [
+//         {
+//             data: [200, 150, 20, 10],
+//             backgroundColor: chartColors,
+//             hoverBackgroundColor: chartColors
+//         }
+//     ]
+// };
 
+// export default function PieCharts() {
+//     let chartInstance = null;
 
-    useEffect(() => {
-        setData(() => getData());
-    }, // eslint-disable-next-line
-        [events]);
+//     // useEffect(() => {
+//     //   const legend = chartInstance.chartInstance.generateLegend();
+//     //   console.log(chartInstance, "textinput");
+//     //   console.log(legend);
+//     //   document.getElementById("legend").innerHTML = legend;
+//     // }, [chartInstance]);
 
-    return (
-        <ResponsiveContainer width={'99%'} height={400}>
-            <PieChart width={400} height={400}>
-                <Pie
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`}
-                    outerRadius={80}
-                    innerRadius={60}
-                    fill="#8884d8"
-                    dataKey="value"
-                >
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[index % colors.length]} name={entry.name} />
-                    ))}
-                </Pie>
-                <Legend layout="horizontal" verticalAlign="bottom" align="center" height={45} />
-            </PieChart>
-        </ResponsiveContainer>
-    );
-};
+//     return (
+//         <div className="PieCharts">
+//             <h1>Hello CodeSandbox</h1>
+//             <div style={styles.relative}>
+//                 <Doughnut data={data} options={options} />
+//                 <div style={styles.pieContainer}>
+//                     <Pie
+//                         data={data}
+//                         options={pieOptions}
+//                         ref={input => {
+//                             chartInstance = input;
+//                         }}
+//                     />
+//                 </div>
+//                 <div id="legend" />
+//             </div>
+//         </div>
+//     );
+// }
 
-export default PieCharts;
+// const styles = {
+//     pieContainer: {
+//         width: "40%",
+//         height: "40%",
+//         top: "50%",
+//         left: "50%",
+//         position: "absolute",
+//         transform: "translate(-50%, -50%)"
+//     },
+//     relative: {
+//         position: "relative"
+//     }
+// };
+
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<PieCharts />, rootElement);

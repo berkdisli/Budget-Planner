@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import ExpenseItems from '../ExpenseItems/expenseItems';
 import { AppContext } from '../../AppContext/appContext';
+import './expenseList.css';
+
 
 const ExpenseList = () => {
     const { expenses } = useContext(AppContext);
@@ -21,12 +23,13 @@ const ExpenseList = () => {
     return (
         <>
             <input
+                id='search'
                 type='text'
                 class='form-control mb-2 mr-sm-2'
                 placeholder='Type to search your expense...'
                 onChange={handleChange}
             />
-            <ul class='list-group mt-3 mb-3'>
+            <ul id='items' class='list-group mt-3 mb-3'>
                 {filteredExpenses.map((expense) => (
                     <ExpenseItems
                         id={expense.id}
