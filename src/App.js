@@ -9,6 +9,7 @@ import ExpenseList from './components/ExpenseList/expenseList';
 import AddNewExpenses from './components/AddNewExpenses/addNewExpenses';
 import ApexChart from './components/ApexChart/apexChart';
 import LogoImage from "./img/budget.png";
+import PieCharts from './components/PieChart/pieChart';
 
 // import PieCharts from './components/PieChart/pieChart';
 
@@ -16,7 +17,6 @@ import { AppProvider } from './AppContext/appContext';
 import { AppContext } from './AppContext/appContext';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Card, Navbar, Nav, Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 export function CDate() {
   const cmonth = new Date().toLocaleString("en-US", { month: "long" })
@@ -80,10 +80,11 @@ const App = () => {
             <div className='col-sm'>
               <ApexChart />
             </div>
+
             <div className='col-sm'>
             </div>
             <div className='col-sm'>
-              {/* < PieCharts /> */}
+              < PieCharts />
 
               <PieChart
                 width='100%'

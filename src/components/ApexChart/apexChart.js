@@ -1,46 +1,47 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useState } from "react";
 import Chart from "react-apexcharts";
 import moment from 'moment';
-import Expenses from "../Expenses/expenses";
+import { AppContext } from "../../AppContext/appContext";
 
-class ApexChart extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            options: {
-                chart: {
-                    id: "basic-bar"
-                },
-                xaxis: {
-                    categories: moment.months()
-                }
-            },
-            series: [
-                {
-                    name: "series-1",
-                    data: [30, 40, 45, 50, 49, 60, 70, 91, 44, 100, 424, 33]
-                }
-            ]
-        };
-    }
+const ApexChart = (props) => {
+    // context
+    const { expenses } = useContext(AppContext);
 
-    render() {
-        return (
-            <div className="app">
-                <div className="row">
-                    <div className="mixed-chart">
-                        <Chart
-                            options={this.state.options}
-                            series={this.state.series}
-                            type="bar"
-                            width="500"
-                        />
-                    </div>
+    // state
+    const [options, setOptions] = useState({
+        chart: {
+            id: "basic-bar"
+        },
+        xaxis: {
+            categories: moment.months()
+        },
+    });
+    const [series, setSeries] = useState([
+        {
+            name: "series-1",
+            data: expenses.map(expense => expense.cost)
+        }
+    ]);
+
+    const totalExpenses = expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
+
+    return (
+        <div className="app">
+            <div className="row">
+                <div className="mixed-chart">
+                    <Chart
+                        options={options}
+                        series={series}
+                        type="bar"
+                        width="500"
+                    />
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default ApexChart;

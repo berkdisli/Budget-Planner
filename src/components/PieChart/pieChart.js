@@ -1,113 +1,41 @@
-// import React, { useEffect } from "react";
-// import ReactDOM from "react-dom";
-// import { Doughnut, Pie } from "react-chartjs-2";
-// import { chartColors } from "./colors";
-
-// const options = {
-//     legend: {
-//         display: false,
-//         position: "right"
-//     },
-//     elements: {
-//         arc: {
-//             borderWidth: 0
-//         }
-//     }
-// };
-
-// const pieOptions = {
-//     legend: {
-//         display: false,
-//         position: "right",
-//         legendCallback: function (chart) {
-//             // Return the HTML string here.
-//             console.log(chart);
-//             return [
-//                 <ul>
-//                     <li>z</li>
-//                     <li>zzzz</li>
-//                     <li>ppp</li>
-//                     <li>adasda</li>
-//                 </ul>
-//             ];
-//         }
-//     },
-//     elements: {
-//         arc: {
-//             borderWidth: 0
-//         }
-//     }
-// };
-
-// const data = {
-//     maintainAspectRatio: false,
-//     responsive: false,
-//     labels: ["a", "b", "c", "d"],
-//     datasets: [
-//         {
-//             data: [300, 50, 100, 50],
-//             backgroundColor: chartColors,
-//             hoverBackgroundColor: chartColors
-//         }
-//     ]
-// };
-
-// const pieData = {
-//     maintainAspectRatio: false,
-//     responsive: false,
-//     labels: ["usa", "europe", "africa"],
-//     datasets: [
-//         {
-//             data: [200, 150, 20, 10],
-//             backgroundColor: chartColors,
-//             hoverBackgroundColor: chartColors
-//         }
-//     ]
-// };
-
-// export default function PieCharts() {
-//     let chartInstance = null;
-
-//     // useEffect(() => {
-//     //   const legend = chartInstance.chartInstance.generateLegend();
-//     //   console.log(chartInstance, "textinput");
-//     //   console.log(legend);
-//     //   document.getElementById("legend").innerHTML = legend;
-//     // }, [chartInstance]);
-
-//     return (
-//         <div className="PieCharts">
-//             <h1>Hello CodeSandbox</h1>
-//             <div style={styles.relative}>
-//                 <Doughnut data={data} options={options} />
-//                 <div style={styles.pieContainer}>
-//                     <Pie
-//                         data={data}
-//                         options={pieOptions}
-//                         ref={input => {
-//                             chartInstance = input;
-//                         }}
-//                     />
-//                 </div>
-//                 <div id="legend" />
-//             </div>
-//         </div>
-//     );
-// }
-
-// const styles = {
-//     pieContainer: {
-//         width: "40%",
-//         height: "40%",
-//         top: "50%",
-//         left: "50%",
-//         position: "absolute",
-//         transform: "translate(-50%, -50%)"
-//     },
-//     relative: {
-//         position: "relative"
-//     }
-// };
-
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<PieCharts />, rootElement);
+var React = require('react');
+var Component = React.Component;
+var CanvasJSReact = require('./canvasjs.react');
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+export default class PieCharts extends Component {
+    render() {
+        const options = {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Website Traffic Sources"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 75,
+                toolTipContent: "<b>{label}</b>: {y}%",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}%",
+                dataPoints: [
+                    { y: 18, label: "Direct" },
+                    { y: 49, label: "Organic Search" },
+                    { y: 9, label: "Paid Search" },
+                    { y: 5, label: "Referral" },
+                    { y: 19, label: "Social" }
+                ]
+            }]
+        }
+        return (
+            <div>
+                <CanvasJSChart options={options}
+                /* onRef={ref => this.chart = ref} */
+                />
+                {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+            </div>
+        );
+    }
+}
+module.exports = PieCharts; 
