@@ -84,9 +84,9 @@ const App = () => {
             <div className='col-sm'>
             </div>
             <div className='col-sm'>
-              {/* < PieCharts /> */}
+              < PieCharts />
 
-              <PieChart
+              {/* <PieChart
                 width='100%'
                 animation
                 animationDuration={500}
@@ -117,7 +117,7 @@ const App = () => {
                   fontColor: "FFFFFA",
                   fontWeight: "800",
                 }}
-              />
+              /> */}
             </div>
           </div>
         </Card>
