@@ -84,7 +84,7 @@ const App = () => {
             <div className='col-sm'>
             </div>
             <div className='col-sm'>
-              < PieCharts />
+              {/* < PieCharts /> */}
 
               <PieChart
                 width='100%'
