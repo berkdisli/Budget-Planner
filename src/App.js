@@ -49,8 +49,8 @@ const App = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
-              <Button href="/">
+            <Nav.Link href="/">
+              <Button>
                 Home
               </Button>
             </Nav.Link>
@@ -84,7 +84,7 @@ const App = () => {
             <div className='col-sm'>
             </div>
             <div className='col-sm'>
-              < PieCharts />
+              {/* < PieCharts /> */}
 
               {/* <PieChart
                 width='100%'

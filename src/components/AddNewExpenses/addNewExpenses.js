@@ -3,6 +3,8 @@ import { AppContext } from '../../AppContext/appContext';
 import { v4 as uuidv4 } from 'uuid';
 import './addNewExpenses.css';
 
+
+
 const AddNewExpenses = () => {
     const { dispatch } = useContext(AppContext);
 
@@ -26,6 +28,29 @@ const AddNewExpenses = () => {
         setName('');
         setCost('');
     };
+    const sequencedNames = [];
+
+    const { expenses } = useContext(AppContext);
+
+    // state
+    const [options, setOptions] = useState({
+        chart: {
+            id: "basic-bar"
+        },
+        xaxis: {
+            categories: sequencedNames
+        },
+    });
+    const [series, setSeries] = useState([
+        {
+            name: "series-1",
+            data: expenses.map(expense => expense.cost)
+        }
+    ]);
+
+    const totalExpenses = expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
 
     return (
         <form onSubmit={onSubmit}>
@@ -54,7 +79,11 @@ const AddNewExpenses = () => {
                     ></input>
                 </div>
                 <div className='col-m'>
-                    <button type='submit' className='btn btn-primary mt-3'>
+                    <button
+                        type='submit'
+                        className='btn btn-primary mt-3'
+                        onClick={() => setSeries(series + 1)}
+                    >
                         Save
                     </button>
                 </div>

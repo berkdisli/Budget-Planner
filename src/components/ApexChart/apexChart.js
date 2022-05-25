@@ -60,10 +60,12 @@ const ApexChart = (props) => {
                         series={series}
                         type="bar"
                         width="500"
+                        onClick={() => this.setState({ series: this.state.series + 1 })}
                     />
                 </div>
             </div>
         </div>
+
     );
 }
 
